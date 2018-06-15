@@ -1,0 +1,22 @@
+<h3>Login</h3>
+
+<%= form_with model: @users, url: sessions_path ,local: true do |form| %>
+
+  
+
+  <p>
+    <%= form.label :Email %><br>
+    <%= form.text_field :email %>
+  </p>
+
+  <p>
+    <%= form.label :Password %><br>
+    <%= form.password_field :password %>
+  </p>
+
+   <p>
+    <%= form.submit 'Login' %>
+  </p>
+<% end %>
+
+<span>Or Register Yourself <%= link_to '<button type="button">Sign Up Here</button>'.html_safe, new_user_path %></span>

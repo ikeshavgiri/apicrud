@@ -1,0 +1,14 @@
+<h3>Welcome User</h3>
+ 
+<% if current_user %> 
+      
+      <%= link_to '<button type="button">All Movies</button>'.html_safe, movies_path %> 
+      <br><br>
+      Logged in as <%= current_user.email %>.  
+      <%= link_to "Log Out", logout_path %>   
+ 
+
+<% else %>  
+<%= link_to '<button type="button">Sign Up</button>'.html_safe, new_user_path %>
+ <%= link_to '<button type="button">Login</button>'.html_safe, login_path %> 
+<% end %> 

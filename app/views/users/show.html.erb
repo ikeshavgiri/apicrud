@@ -1,0 +1,13 @@
+<h3>User Successfully Created</h3>
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+ 
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<%= link_to '<button type="button">Sign Up</button>'.html_safe, new_user_path %>
+<%= link_to '<button type="button">Login</button>'.html_safe, login_path %>

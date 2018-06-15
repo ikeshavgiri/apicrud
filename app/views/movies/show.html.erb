@@ -1,0 +1,46 @@
+<% if current_user %> 
+<p>
+  <strong>Movie Name:</strong>
+  <%= @movie.name %>
+</p>
+ 
+
+<p>
+  <p>Image for the Movie:</p>
+   <td><%= image_tag @movie.image.thumb.url %></td>
+</p>
+<%= link_to '<button type="button">Back</button>'.html_safe , movies_path %> <br>
+------------------------------------
+<h4>Comments for this movie:</h4>
+<% @movie.comments.each do |comment| %>
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.comment %>
+  </p>
+------------------------------------
+<% end %>
+
+
+<h4>Add a comment:</h4>
+<%= form_with(model: [ @movie, @movie.comments.build ], local: true) do |form| %>
+
+  <p>
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment %>
+  </p>
+  
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<%= link_to 'Back', movies_path %>
+
+<% else %>  
+    <h3> You have to login first</h3>
+    <%= link_to '<button type="button">Login</button>'.html_safe, login_path %>   
+    <br>
+    <p>or</p>
+    <%= link_to '<button type="button">Create a account</button>'.html_safe, new_user_path %>
+    
+<% end %>      
+
